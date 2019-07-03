@@ -34,7 +34,7 @@ public class AdminHandler {
 	@Autowired
 	private AdminService adminService;
 		/**
-		 * 登录方法  测试
+		 * 登录方法  测试  提交测试信息 
 		 * @param loginacct 账号
 		 * @param userpswd 密码
 		 * @param model
