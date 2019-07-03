@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atguigu.crowd.mapper.EmployeeMapper" >
+
+  <resultMap id="BaseResultMap" type="com.atguigu.crowd.entity.Employee" >
+    <id column="emp_id" property="empId" jdbcType="INTEGER" />
+    <result column="emp_name" property="empName" jdbcType="VARCHAR" />
+    <result column="emp_age" property="empAge" jdbcType="INTEGER" />
+    <result column="salary" property="salary" jdbcType="DOUBLE" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_employee
+    where emp_id = #{empId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.atguigu.crowd.entity.Employee" >
+    insert into t_employee (emp_id, emp_name, emp_age, 
+      salary)
+    values (#{empId,jdbcType=INTEGER}, #{empName,jdbcType=VARCHAR}, #{empAge,jdbcType=INTEGER}, 
+      #{salary,jdbcType=DOUBLE})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.atguigu.crowd.entity.Employee" >
+    update t_employee
+    set emp_name = #{empName,jdbcType=VARCHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      salary = #{salary,jdbcType=DOUBLE}
+    where emp_id = #{empId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select emp_id, emp_name, emp_age, salary
+    from t_employee
+    where emp_id = #{empId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select emp_id, emp_name, emp_age, salary
+    from t_employee
+  </select>
+  
+  <update id="updateAgeById">
+  		 update t_employee
+  		 set emp_age=emp_age +  #{age}
+  		 where emp_id=#{empId}
+  
+  </update>
+   <update id="updateSalaryById">
+  		 update t_employee
+  		 set salary=salary + #{salary}
+  		 where emp_id=#{empId}
+  
+  </update>
+  
+  
+  
+</mapper>
