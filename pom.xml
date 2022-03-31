@@ -12,7 +12,7 @@
 		<module>single-atcrowdfunding-5-entity</module>
 	</modules>
 	<properties>
-		<atguigu.spring.version>4.3.19.RELEASE</atguigu.spring.version>
+		<atguigu.spring.version>5.3.18</atguigu.spring.version>
 	</properties>
 
 	<dependencyManagement>
